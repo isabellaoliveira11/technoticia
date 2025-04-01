@@ -3,6 +3,7 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import MainPage from "../../src/modules/components/MainPage"; // Caminho para o componente MainPage
+import Footer from "../../src/shared/components/Footer"; // Importando o Footer
 
 export default function Home() {
   const [news, setNews] = useState<any[]>([]);
@@ -41,6 +42,9 @@ export default function Home() {
 
       {/* Passando a prop 'news' para o MainPage */}
       <MainPage news={news} />
+
+      {/* Adicionando o Footer abaixo do MainPage */}
+      <Footer />
     </>
   );
 }
