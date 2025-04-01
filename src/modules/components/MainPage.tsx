@@ -1,38 +1,28 @@
-'use client'; // Força o componente a ser renderizado no lado do cliente
+'use client';
 
-import News from "../../modules/components/News";
+import { useContext } from "react";
 import { Container, Content } from "./styles";
+
 import TopBar from "../../modules/components/TopBar";
+import Highlights from "../../modules/components/Highlights";
+import News from "../../modules/components/News";
+import Footer from "../../shared/components/Footer";
 
-interface MainPageProps {
-  news: any[];  // Recebe as notícias como props
-}
+import { NewsContext } from "@/app/page";
 
-const MainPage = ({ news }: MainPageProps) => {
-  if (!news || news.length === 0) {
-    return (
-      <Container>
-        <Content>
-          <TopBar />
-          <h2 className="slogan">
-            Nenhuma notícia disponível no momento.
-          </h2>
-        </Content>
-      </Container>
-    );
-  }
+const MainPage = () => {
+  const { news } = useContext(NewsContext);
 
   return (
-    <Container>
+    <Container id="top">
       <Content>
         <TopBar />
-
         <h2 className="slogan">
-          Os principais portais <br /> de notícias em{" "}
-          <mark>um só lugar.</mark>
+          Os principais portais <br /> de notícias em <mark>um só lugar.</mark>
         </h2>
-
-        <News news={news} /> {/* Passa as notícias para o componente News */}
+        <Highlights /> {/* Remova news={news} */}
+        <News /> {/* Remova news={news} */}
+        <Footer />
       </Content>
     </Container>
   );

@@ -1,15 +1,18 @@
 "use client";
 
+import { useContext } from "react";
 import { Newspaper } from "phosphor-react";
 import SectionTitle from "@/shared/components/SectionTitle";
 import ThumbNews from "@/shared/components/ThumbNews";
+import useWindowSize from "@/shared/utils/useWindowSize"; // Importar useWindowSize
 import { Container } from "./styles";
+import { NewsContext } from "@/app/page"; // Importar NewsContext
 
-interface NewsProps {
-  news: any[];
-}
+const News = () => {
+  const { news } = useContext(NewsContext);
+  const windowSize = useWindowSize();
+  const isNewsToResize = windowSize.windowWidth <= 1180;
 
-const News = ({ news }: NewsProps) => {
   return (
     <Container id="noticias">
       <SectionTitle
@@ -17,7 +20,7 @@ const News = ({ news }: NewsProps) => {
         title="Últimas notícias"
       />
       <div className="news">
-        {news.slice(0, 16).map((article, index) => (
+        {news && news.slice(4, 20).map((article: any, index: number) => ( // Adicionado verificação de news
           <ThumbNews
             key={index}
             title={article.title}
@@ -26,7 +29,7 @@ const News = ({ news }: NewsProps) => {
             image={article.image}
             publishedAt={article.publishedAt}
             source={article.source}
-            design="horizontal"
+            design={isNewsToResize ? "vertical" : "horizontal"} // Adicionado responsividade
           />
         ))}
       </div>

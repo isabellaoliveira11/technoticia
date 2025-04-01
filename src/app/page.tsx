@@ -1,9 +1,20 @@
-'use client'; // Força o componente a ser renderizado no lado do cliente
+'use client';
 
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import MainPage from "../../src/modules/components/MainPage"; // Caminho para o componente MainPage
-import Footer from "../../src/shared/components/Footer"; // Importando o Footer
+import { createContext, useContext, useEffect, useState } from "react";
+import MainPage from "../../src/modules/components/MainPage";
+import Footer from "../../src/shared/components/Footer";
+
+// 1. Criação do Contexto
+interface NewsContextProps {
+  news: any[];
+  setNews: React.Dispatch<React.SetStateAction<any[]>>;
+}
+
+export const NewsContext = createContext<NewsContextProps>({
+  news: [],
+  setNews: () => {},
+});
 
 export default function Home() {
   const [news, setNews] = useState<any[]>([]);
@@ -23,7 +34,7 @@ export default function Home() {
         const technologyNewsData = await getTechnologyNews.json();
         const technologyNews = technologyNewsData.articles;
 
-        setNews([...worldNews, ...technologyNews]); // Atualizando estado
+        setNews([...worldNews, ...technologyNews]);
       } catch (error) {
         console.error("Erro ao buscar notícias:", error);
       }
@@ -40,10 +51,11 @@ export default function Home() {
         <link rel="icon" type="shortcut icon" href="/favicon.svg" />
       </Head>
 
-      {/* Passando a prop 'news' para o MainPage */}
-      <MainPage news={news} />
+      {/* 2. Provedor do Contexto */}
+      <NewsContext.Provider value={{ news, setNews }}>
+        <MainPage />
+      </NewsContext.Provider>
 
-      {/* Adicionando o Footer abaixo do MainPage */}
       <Footer />
     </>
   );
