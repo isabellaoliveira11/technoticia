@@ -1,32 +1,45 @@
-'use client';  // Força o componente a ser renderizado no lado do cliente
+'use client'; // Força o componente a ser renderizado no lado do cliente
 
 import Head from "next/head";
-import MainPage from "../../src/modules/components/MainPage";
+import { useEffect, useState } from "react";
+import MainPage from "../../src/modules/components/MainPage"; // Caminho para o componente MainPage
 
-export default function Page() {
-  // Simulando as notícias como uma variável de exemplo
-  const news = [
-    {
-      title: "Notícia 1",
-      description: "Descrição da Notícia 1",
-      url: "https://example.com/noticia1",
-    },
-    {
-      title: "Notícia 2",
-      description: "Descrição da Notícia 2",
-      url: "https://example.com/noticia2",
-    },
-  ];
+export default function Home() {
+  const [news, setNews] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const getWorldNews = await fetch(
+          `https://gnews.io/api/v4/top-headlines?category=world&apikey=1aa478fe04a57ba66875f776b176a1f5&lang=pt&country=br`
+        );
+        const worldNewsData = await getWorldNews.json();
+        const worldNews = worldNewsData.articles;
+
+        const getTechnologyNews = await fetch(
+          `https://gnews.io/api/v4/top-headlines?category=technology&apikey=1aa478fe04a57ba66875f776b176a1f5&lang=pt&country=br`
+        );
+        const technologyNewsData = await getTechnologyNews.json();
+        const technologyNews = technologyNewsData.articles;
+
+        setNews([...worldNews, ...technologyNews]); // Atualizando estado
+      } catch (error) {
+        console.error("Erro ao buscar notícias:", error);
+      }
+    };
+
+    fetchNews();
+  }, []);
 
   return (
     <>
       <Head>
-        <title>InfoNotícia</title>
-        <meta name="title" content="InfoNotícia" />
+        <title>nanoticia</title>
+        <meta name="title" content="nanoticia" />
         <link rel="icon" type="shortcut icon" href="/favicon.svg" />
       </Head>
 
-      {/* Passando as notícias diretamente como props para o componente MainPage */}
+      {/* Passando a prop 'news' para o MainPage */}
       <MainPage news={news} />
     </>
   );

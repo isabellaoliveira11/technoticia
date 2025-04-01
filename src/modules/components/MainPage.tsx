@@ -1,41 +1,38 @@
-import { Container, Content } from "./styles"; // Importando de styles.ts
-import TopBar from "../../modules/components/TopBar"; // Caminho correto para TopBar
+'use client'; 
 
-interface NewsItem {
-  title: string;
-  description: string;
-  url: string;
-}
+import News from "../../modules/components/News";  
+import { Container, Content } from "./styles"; 
+import TopBar from "../../modules/components/TopBar";  
 
 interface MainPageProps {
-  news: NewsItem[];  // Tipando as props com um array de notícias
+  news: any[];  // Recebe as notícias como props
 }
 
 const MainPage = ({ news }: MainPageProps) => {
+  if (!news || news.length === 0) {
+    return (
+      <Container>
+        <Content>
+          <TopBar />
+          <h2 className="slogan">
+            Nenhuma notícia disponível no momento.
+          </h2>
+        </Content>
+      </Container>
+    );
+  }
+
   return (
     <Container>
       <Content>
-        <TopBar /> {/* Exibe a TopBar diretamente sem o delay */}
+        <TopBar /> 
 
         <h2 className="slogan">
           Os principais portais <br /> de notícias em{" "}
           <mark>um só lugar.</mark>
-        </h2> {/* Mensagem fixa */}
+        </h2> 
 
-        <div>
-          <h1>Notícias</h1>
-          <ul>
-            {news.map((item, index) => (
-              <li key={index}>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-                <a href={item.url} target="_blank" rel="noopener noreferrer">
-                  Leia mais
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <News news={news} /> {/* Passa as notícias para o componente News */}
       </Content>
     </Container>
   );
