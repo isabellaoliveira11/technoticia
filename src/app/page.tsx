@@ -46,8 +46,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>nanoticia</title>
-        <meta name="title" content="nanoticia" />
+        <title>technoticia</title>
+        <meta name="title" content="technoticia" />
         <link rel="icon" type="shortcut icon" href="/favicon.svg" />
       </Head>
 
@@ -56,7 +56,7 @@ export default function Home() {
         <MainPage />
       </NewsContext.Provider>
 
-      <Footer />
+
     </>
   );
 }
