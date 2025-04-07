@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface ContainerProps {
-  isDarkTheme: boolean;
+  $isDarkTheme: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -21,7 +21,7 @@ export const Container = styled.div<ContainerProps>`
   border-radius: 1rem;
 
   ${(props) =>
-    props.isDarkTheme
+    props.$isDarkTheme
       ? css`
           background-color: rgba(101, 210, 174, 0.15);
         `
@@ -55,32 +55,19 @@ export const Container = styled.div<ContainerProps>`
       box-shadow: 0 0 0 rgba(204, 169, 44, 0.4);
       animation: pulse 2s infinite;
     }
+
     .pulse:hover {
       animation: none;
     }
 
-    @-webkit-keyframes pulse {
-      0% {
-        -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
-      }
-      70% {
-        -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
-      }
-      100% {
-        -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
-      }
-    }
     @keyframes pulse {
       0% {
-        -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
         box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
       }
       70% {
-        -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
         box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
       }
       100% {
-        -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
         box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
       }
     }

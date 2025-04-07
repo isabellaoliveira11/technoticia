@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-import LinkBreak from "@/shared/assets/icons/LinkBreak.svg"; // Caminho absoluto
-import logo from "@/shared/assets/logos/nanoticia-logo.svg";
+import LinkBreak from "../../../../shared/assets/icons/LinkBreak.svg";
+import logo from "../../../../shared/assets/logos/nanoticia-logo.svg";
 
-import Footer from "@/shared/components/Footer";
+import Footer from "../../../../shared/components/Footer";
 
 import { Container } from "./styles";
 

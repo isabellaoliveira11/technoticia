@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import { GlobalStyles } from "./global";
+import { GlobalStyles } from "../shared/styles/global";
 import { Dispatch, createContext, useState } from "react";
 
 interface GlobalContextProps {

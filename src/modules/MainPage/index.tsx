@@ -1,16 +1,15 @@
-'use client';
-
 import { useContext } from "react";
 import { Container, Content } from "./styles";
 
-import TopBar from "../../modules/components/TopBar";
-import Highlights from "../../modules/components/Highlights";
-import News from "../../modules/components/News";
-import Footer from "../../shared/components/Footer";
-import Categories from "../../modules/components/Categories";
-import ErrorWarning from "@/modules/components/ErrorWarning";
 
-import { NewsContext } from "@/app/page";
+import TopBar from "./components/TopBar";
+import Categories from "./components/Categories";
+import Highlights from "./components/Highlights";
+import News from "./components/News";
+import Footer from "../../shared/components/Footer";
+import ErrorWarning from "./components/ErrorWarning";
+
+import { NewsContext } from "../../app/page";
 
 const MainPage = () => {
   const { news } = useContext(NewsContext);

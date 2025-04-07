@@ -1,10 +1,8 @@
 import { useEffect, useState, HTMLAttributes, useContext } from "react";
-
 import useWindowSize from "../../utils/useWindowSize";
 import scrollToComment from "../../utils/smoothScroll";
 import { Container } from "./styles";
 import { GlobalContext } from '@/app/_app';
-
 
 interface CategoryCardProps extends HTMLAttributes<HTMLDivElement> {
   icon: any;
@@ -36,7 +34,7 @@ const CategoryCard = ({ icon, title }: CategoryCardProps) => {
   }
 
   return (
-    <Container isDarkTheme={isDarkTheme} onClick={() => handleClick()}>
+    <Container $isDarkTheme={isDarkTheme} onClick={() => handleClick()}>
       {icon}
       <div>
         <p>{newTitle}</p>

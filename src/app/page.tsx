@@ -2,8 +2,8 @@
 
 import Head from "next/head";
 import { createContext, useContext, useEffect, useState } from "react";
-import MainPage from "../../src/modules/components/MainPage";
 import Footer from "../../src/shared/components/Footer";
+import MainPage from '../modules/MainPage';
 
 // 1. Criação do Contexto
 interface NewsContextProps {
