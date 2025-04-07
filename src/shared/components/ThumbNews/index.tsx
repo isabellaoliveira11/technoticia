@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ThumbNewsProps } from "./interface";
-import DefaultThumbnail from "../../assets/thumbnails/default-thumnail.svg"; // Corrigido o nome para "DefaultThumbnail"
-import { Container } from "./styles"; // Se estiver no mesmo diretório
+import DefaultThumbnail from "../../assets/thumbnails/default-thumnail.svg";
+import { Container } from "./styles";
 
 const ThumbNews = ({
   title,
@@ -29,7 +29,7 @@ const ThumbNews = ({
 
   return (
     <Container
-      hasImage={hasImage}  // Garantindo que a prop 'hasImage' esteja sendo passada corretamente
+      $hasImage={hasImage}
       design={design}
       onClick={() => window.open(url, "_blank")}
     >
@@ -51,14 +51,14 @@ const ThumbNews = ({
                 .replace(/&#8211;/i, "'")
                 .replace(/&#8216;/i, "'")}
             </p>
-            <p className="publishedAt">{formatDate} </p>
+            <p className="publishedAt">{formatDate}</p>
             <h4>{source?.name}</h4>
           </>
         )}
         {design === "vertical" && (
           <>
             <div>
-              <p className="publishedAt">{formatDate} </p>
+              <p className="publishedAt">{formatDate}</p>
               <h4>{title}</h4>
               <p>{source.name}</p>
             </div>
@@ -67,7 +67,7 @@ const ThumbNews = ({
         {design === "horizontal" && (
           <>
             <div className="info-content">
-              <p className="publishedAt">{formatDate} </p>
+              <p className="publishedAt">{formatDate}</p>
               <h4>{title}</h4>
               <p>{source.name}</p>
             </div>

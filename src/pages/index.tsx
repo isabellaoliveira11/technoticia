@@ -1,9 +1,7 @@
-'use client';
-
 import Head from "next/head";
-import { createContext, useContext, useEffect, useState } from "react";
-import MainPage from "../../src/modules/components/MainPage";
+import { createContext, useEffect, useState } from "react";
 import Footer from "../../src/shared/components/Footer";
+import MainPage from '../modules/MainPage';
 
 // 1. Criação do Contexto
 interface NewsContextProps {
@@ -22,21 +20,15 @@ export default function Home() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const getWorldNews = await fetch(
-          `https://gnews.io/api/v4/top-headlines?category=world&apikey=1aa478fe04a57ba66875f776b176a1f5&lang=pt&country=br`
-        );
-        const worldNewsData = await getWorldNews.json();
-        const worldNews = worldNewsData.articles;
-
-        const getTechnologyNews = await fetch(
+        const response = await fetch(
           `https://gnews.io/api/v4/top-headlines?category=technology&apikey=1aa478fe04a57ba66875f776b176a1f5&lang=pt&country=br`
         );
-        const technologyNewsData = await getTechnologyNews.json();
-        const technologyNews = technologyNewsData.articles;
+        const data = await response.json();
+        const technologyNews = data.articles;
 
-        setNews([...worldNews, ...technologyNews]);
+        setNews(technologyNews);
       } catch (error) {
-        console.error("Erro ao buscar notícias:", error);
+        console.error("Erro ao buscar notícias de tecnologia:", error);
       }
     };
 
@@ -54,9 +46,8 @@ export default function Home() {
       {/* 2. Provedor do Contexto */}
       <NewsContext.Provider value={{ news, setNews }}>
         <MainPage />
+        <Footer />
       </NewsContext.Provider>
-
-
     </>
   );
 }

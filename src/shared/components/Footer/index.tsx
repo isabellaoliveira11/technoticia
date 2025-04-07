@@ -8,7 +8,7 @@ import logoWhite from "../../../shared/assets/logos/nanoticia-logo-white.svg";
 
 import { Container } from "./styles";
 import smoothScroll from "../../utils/smoothScroll";
-import { GlobalContext } from "../../../app/_app";
+import { GlobalContext } from "../../../pages/_app";
 
 interface FooterProps {
   errorWarningLayout?: boolean;
@@ -46,7 +46,7 @@ const Footer = ({ errorWarningLayout }: FooterProps) => {
           Desenvolvido por{" "}
           <strong>
             <a
-              href="https://henriquesousadev.vercel.app"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
             >

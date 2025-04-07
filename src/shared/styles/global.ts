@@ -7,9 +7,9 @@ interface GlobalStylesProps {
 export const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
 
   :root {
-    --GREEN: #65D2AE;
+    --GREEN: #8C52FF;
     --LIGHT-GREEN: #E4F4F4;
-    --DARK-BLUE: #213249;
+    --DARK-BLUE:rgb(73, 33, 33);
     --GRAY: #828282;
     --LIGHT-GRAY: #d9d9d9;
   }

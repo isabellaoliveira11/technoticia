@@ -17,6 +17,19 @@ export const Container = styled.div`
     gap: 2.5rem;
   }
 
+  .date-temperature {
+    h2 {
+      margin: 0;
+      color: var(--GRAY);
+      text-align: right;
+    }
+
+    h3 {
+      color: var(--GRAY);
+      text-align: right;
+    }
+  }
+
   @media (max-width: 720px) {
     justify-content: center;
     padding-bottom: 1rem;

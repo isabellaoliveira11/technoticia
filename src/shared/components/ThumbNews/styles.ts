@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 interface ContainerProps {
   design: string;
-  hasImage: boolean;
+  $hasImage: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -25,13 +25,7 @@ export const Container = styled.div<ContainerProps>`
     }
 
     .info {
-      h2 {
-        transition: all 0.4s ease-in-out;
-        text-decoration: underline;
-        text-underline-offset: 3px;
-      }
-
-      h4 {
+      h2, h4 {
         transition: all 0.4s ease-in-out;
         text-decoration: underline;
         text-underline-offset: 3px;
@@ -47,9 +41,9 @@ export const Container = styled.div<ContainerProps>`
     justify-content: center;
 
     ${(props) =>
-      !props.hasImage &&
+      !props.$hasImage &&
       css`
-        border: 1px solid #65d2ae;
+        border: 1px solidrgb(210, 103, 101);
       `}
 
     > div {
@@ -217,7 +211,6 @@ export const Container = styled.div<ContainerProps>`
           display: flex;
           align-items: center;
           justify-content: flex-start;
-
           gap: 1rem;
         }
       }
