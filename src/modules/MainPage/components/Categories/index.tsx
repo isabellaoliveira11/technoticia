@@ -8,7 +8,11 @@ import useWindowSize from "../../../../shared/utils/useWindowSize";
 import scrollToComment from "../../../../shared/utils/smoothScroll";
 
 import { Container } from "./styles";
+<<<<<<< HEAD
 import { GlobalContext } from "../../../../pages/_app";
+=======
+import { GlobalContext } from "../../../../app/_app";
+>>>>>>> 4054761cc4bd100b84192730c9a6a764f8661370
 
 const Categories = () => {
   const { isDarkTheme } = useContext(GlobalContext);

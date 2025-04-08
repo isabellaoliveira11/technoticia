@@ -1,6 +1,10 @@
 import { useContext } from "react";
 import { Newspaper } from "phosphor-react";
+<<<<<<< HEAD
 import { NewsContext } from "../../../../pages/index";
+=======
+import { NewsContext } from "../../../../app/page";
+>>>>>>> 4054761cc4bd100b84192730c9a6a764f8661370
 
 import SectionTitle from "../../../../shared/components/SectionTitle";
 import ThumbNews from "../../../../shared/components/ThumbNews";

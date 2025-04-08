@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Container, Content } from "./styles";
 
-
 import TopBar from "./components/TopBar";
 import Categories from "./components/Categories";
 import Highlights from "./components/Highlights";
@@ -22,7 +21,7 @@ const MainPage = () => {
             <TopBar />
             <Categories />
             <h2 className="slogan">
-            As principais notícias <br /> tech em {" "}
+              As principais notícias <br /> tech em{" "}
               <mark>um só lugar.</mark>
             </h2>
             <Highlights />
@@ -31,9 +30,7 @@ const MainPage = () => {
           </Content>
         </Container>
       ) : (
-        <>
-          <ErrorWarning />
-        </>
+        <ErrorWarning />
       )}
     </>
   );
