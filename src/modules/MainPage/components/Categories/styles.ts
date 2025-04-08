@@ -4,16 +4,18 @@ export const Container = styled.div`
   transition: all 0.5s ease-in-out;
 
   display: flex;
+  flex-direction: column; /* <- Agora empilha os elementos */
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: flex-end;
 
   width: 100%;
   margin-top: 4rem;
+  gap: 1.5rem; /* Espaço entre a data e os cards */
 
   .categories-card {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-end;
+    justify-content: flex-end;
     gap: 2.5rem;
   }
 
@@ -31,13 +33,12 @@ export const Container = styled.div`
   }
 
   @media (max-width: 720px) {
-    justify-content: center;
     padding-bottom: 1rem;
   }
 
   @media (max-width: 500px) {
     margin-top: 2rem;
-    gap: 0.5rem;
+    gap: 1rem;
 
     .categories-card {
       gap: 1rem;

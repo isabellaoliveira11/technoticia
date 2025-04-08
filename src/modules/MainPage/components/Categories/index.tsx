@@ -33,6 +33,13 @@ const Categories = () => {
 
   return (
     <Container>
+      {shouldShowDateAndTemperature && (
+        <div className="date-temperature">
+          <h3>Hoje é</h3>
+          <h2>{today}</h2>
+        </div>
+      )}
+  
       <div className="categories-card">
         <CategoryCard
           icon={<Newspaper weight="thin" size={iconsSize} color={iconColor} />}
@@ -52,12 +59,6 @@ const Categories = () => {
           }
         />
       </div>
-      {shouldShowDateAndTemperature && (
-        <div className="date-temperature">
-          <h3>Hoje é</h3>
-          <h2>{today}</h2>
-        </div>
-      )}
     </Container>
   );
 };

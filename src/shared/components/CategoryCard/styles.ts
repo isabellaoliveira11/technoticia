@@ -13,11 +13,11 @@ export const Container = styled.div<ContainerProps>`
   justify-content: center;
   flex-direction: column;
 
-  width: 8.125rem;
-  height: 8.125rem;
+  width: 5.7rem;
+  height: 5.7rem;
 
-  gap: 0.5rem;
-  padding: 1.75rem 2.625rem;
+  gap: 0.rem;
+  padding: 1.2rem 1.8rem;
   border-radius: 1rem;
 
   ${(props) =>

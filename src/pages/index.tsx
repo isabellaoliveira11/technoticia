@@ -46,7 +46,6 @@ export default function Home() {
       {/* 2. Provedor do Contexto */}
       <NewsContext.Provider value={{ news, setNews }}>
         <MainPage />
-        <Footer />
       </NewsContext.Provider>
     </>
   );
