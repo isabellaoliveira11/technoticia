@@ -2,11 +2,7 @@ import { useEffect, useState, HTMLAttributes, useContext } from "react";
 import useWindowSize from "../../utils/useWindowSize";
 import scrollToComment from "../../utils/smoothScroll";
 import { Container } from "./styles";
-<<<<<<< HEAD
 import { GlobalContext } from '@/pages/_app';
-=======
-import { GlobalContext } from '@/app/_app';
->>>>>>> 4054761cc4bd100b84192730c9a6a764f8661370
 
 interface CategoryCardProps extends HTMLAttributes<HTMLDivElement> {
   icon: any;

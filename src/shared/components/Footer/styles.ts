@@ -33,6 +33,7 @@ export const Container = styled.div<ContainerProps>`
           svg {
             transition: all 0.4s ease-in-out;
             transform: rotate(360deg);
+            
           }
 
           h4 {
@@ -62,6 +63,7 @@ export const Container = styled.div<ContainerProps>`
     a:hover {
       transition: all 0.4s ease-in-out;
       border-bottom: 1px solid var(--GRAY);
+      color: #8C52FF;
     }
   }
 

@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
 
   :root {
     --GREEN: #8C52FF;
-    --LIGHT-GREEN: #E4F4F4;
+    --LIGHT-GREEN: #F9F9F9;
     --DARK-BLUE:rgb(73, 33, 33);
     --GRAY: #828282;
     --LIGHT-GRAY: #d9d9d9;

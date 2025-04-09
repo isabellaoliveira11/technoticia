@@ -42,7 +42,7 @@ const Footer = ({ errorWarningLayout }: FooterProps) => {
       <div className="copyrights">
         <h4>Copyright © 2025 · Todos os direitos reservados. </h4>
         <h4>
-          <CodeSimple weight="bold" size={24} color="#828282" />
+          <CodeSimple weight="bold" size={24} color="#8C52FF" />
           Desenvolvido por{" "}
           <strong>
             <a
