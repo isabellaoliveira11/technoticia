@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import Footer from "../../src/shared/components/Footer";
 import MainPage from '../modules/MainPage';
 
