@@ -3,7 +3,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 import Footer from "../../src/shared/components/Footer";
 import MainPage from '../modules/MainPage';
 
-// 1. Criação do Contexto
 interface NewsContextProps {
   news: any[];
   setNews: React.Dispatch<React.SetStateAction<any[]>>;
@@ -17,23 +16,40 @@ export const NewsContext = createContext<NewsContextProps>({
 export default function Home() {
   const [news, setNews] = useState<any[]>([]);
 
-  useEffect(() => {
-    const fetchNews = async () => {
-      try {
+useEffect(() => {
+  const termos = ["tecnologia", "inteligência artificial", "programação", "software", "hardware" , "aplicativos", "startups"];
+  const apiKey = "1aa478fe04a57ba66875f776b176a1f5"; 
+
+  const fetchNews = async () => {
+    try {
+      const allResults: any[] = [];
+
+      for (const termo of termos) {
         const response = await fetch(
-          `https://gnews.io/api/v4/top-headlines?category=technology&apikey=1aa478fe04a57ba66875f776b176a1f5&lang=pt&country=br`
+          `https://gnews.io/api/v4/search?q=${encodeURIComponent(
+            termo
+          )}&lang=pt&country=br&apikey=${apiKey}`
         );
         const data = await response.json();
-        const technologyNews = data.articles;
 
-        setNews(technologyNews);
-      } catch (error) {
-        console.error("Erro ao buscar notícias de tecnologia:", error);
+        if (data.articles) {
+          allResults.push(...data.articles);
+        }
       }
-    };
 
-    fetchNews();
-  }, []);
+      const uniqueNews = Array.from(
+        new Map(allResults.map((n) => [n.url, n])).values()
+      );
+
+      setNews(uniqueNews);
+    } catch (error) {
+      console.error("Erro ao buscar notícias:", error);
+    }
+  };
+
+  fetchNews();
+}, []);
+
 
   return (
     <>
@@ -43,7 +59,6 @@ export default function Home() {
         <link rel="icon" type="shortcut icon" href="/favicon.svg" />
       </Head>
 
-      {/* 2. Provedor do Contexto */}
       <NewsContext.Provider value={{ news, setNews }}>
         <MainPage />
       </NewsContext.Provider>

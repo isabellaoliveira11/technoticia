@@ -13,7 +13,7 @@ export const GlobalContext = createContext<GlobalContextProps>({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   return (
     <GlobalContext.Provider value={{ isDarkTheme, setIsDarkTheme }}>
